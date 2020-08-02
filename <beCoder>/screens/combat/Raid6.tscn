@@ -1,0 +1,212 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://screens/combat/Combat.gd" type="Script" id=1]
+[ext_resource path="res://screens/combat/interface/UIRaid6.gd" type="Script" id=2]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=3]
+[ext_resource path="res://theme/fonts/19700.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 4 )
+
+[node name="Raid6" type="Node2D"]
+position = Vector2( 24.545, 177.78 )
+script = ExtResource( 1 )
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Combatants" type="HBoxContainer" parent="UI"]
+margin_top = 77.0
+margin_right = 360.0
+margin_bottom = 77.0
+rect_clip_content = true
+custom_constants/separation = 360
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="firstArr" type="GridContainer" parent="UI/Combatants"]
+columns = 4
+
+[node name="tweveArr" type="GridContainer" parent="UI/Combatants"]
+margin_left = 360.0
+margin_right = 360.0
+columns = 3
+
+[node name="Buttons" type="PanelContainer" parent="UI"]
+margin_left = 20.0
+margin_top = 338.0
+margin_right = 1603.0
+margin_bottom = 777.0
+rect_scale = Vector2( 0.95, 0.834 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="UI/Buttons"]
+margin_left = 90.0
+margin_top = 35.0
+margin_right = 1573.0
+margin_bottom = 394.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 7
+
+[node name="AddB3" type="Button" parent="UI/Buttons/GridContainer"]
+margin_right = 197.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_B3"
+
+[node name="AddA3" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 201.0
+margin_right = 409.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_A3"
+
+[node name="AddB4" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 413.0
+margin_right = 626.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_B4"
+
+[node name="AddA2" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 630.0
+margin_right = 843.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_A2"
+
+[node name="AddA1" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 847.0
+margin_right = 1053.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_A1"
+
+[node name="AddB2" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 1057.0
+margin_right = 1268.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_B2"
+
+[node name="AddB1" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 1272.0
+margin_right = 1483.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_B1"
+
+[node name="AddA4" type="Button" parent="UI/Buttons/GridContainer"]
+margin_top = 121.0
+margin_right = 197.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_A4"
+
+[node name="AddAp1" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 201.0
+margin_top = 121.0
+margin_right = 409.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_Ap1"
+
+[node name="AddAp2" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 413.0
+margin_top = 121.0
+margin_right = 626.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_Ap2"
+
+[node name="AddAp3" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 630.0
+margin_top = 121.0
+margin_right = 843.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_Ap3"
+
+[node name="AddBp1" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 847.0
+margin_top = 121.0
+margin_right = 1053.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_Bp1"
+
+[node name="AddBp2" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 1057.0
+margin_top = 121.0
+margin_right = 1268.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_Bp2"
+
+[node name="AddBp3" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 1272.0
+margin_top = 121.0
+margin_right = 1483.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Add_Bp3"
+
+[node name="Check" type="Button" parent="UI/Buttons/GridContainer"]
+margin_top = 242.0
+margin_right = 197.0
+margin_bottom = 359.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Check"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 121.946
+margin_top = -154.089
+margin_right = 1507.95
+margin_bottom = 152.911
+custom_fonts/font = SubResource( 1 )
+text = "RAID_6
+Извините, не успел :("
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddB3" to="UI" method="_on_AddB3_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddA3" to="UI" method="_on_AddA3_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddB4" to="UI" method="_on_AddB4_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddA2" to="UI" method="_on_AddA2_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddA1" to="UI" method="_on_AddA1_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddB2" to="UI" method="_on_AddB2_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddB1" to="UI" method="_on_AddB1_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddA4" to="UI" method="_on_AddA4_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddAp1" to="UI" method="_on_AddAp1_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddAp2" to="UI" method="_on_AddAp2_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddAp3" to="UI" method="_on_AddAp3_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddBp1" to="UI" method="_on_AddBp1_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddBp2" to="UI" method="_on_AddBp2_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/AddBp3" to="UI" method="_on_AddBp3_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/Check" to="UI" method="_on_Check_button_up"]

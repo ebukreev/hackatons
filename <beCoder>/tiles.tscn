@@ -1,0 +1,221 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://grid_movement/tilesets/grid/sprites.jpg" type="Texture" id=1]
+[ext_resource path="res://grid_movement/tilesets/grid/grass.png" type="Texture" id=2]
+[ext_resource path="res://grid_movement/pawns/unit.png" type="Texture" id=3]
+[ext_resource path="res://grid_movement/tilesets/grid/pcHelper.png" type="Texture" id=4]
+[ext_resource path="res://grid_movement/tilesets/grid/rubbish-bin.png" type="Texture" id=5]
+[ext_resource path="res://grid_movement/tilesets/grid/bench.png" type="Texture" id=6]
+[ext_resource path="res://grid_movement/tilesets/grid/blackboard.png" type="Texture" id=7]
+[ext_resource path="res://grid_movement/tilesets/grid/cooler.png" type="Texture" id=8]
+[ext_resource path="res://grid_movement/tilesets/grid/Actor.png" type="Texture" id=9]
+[ext_resource path="res://grid_movement/tilesets/grid/p3.png" type="Texture" id=10]
+[ext_resource path="res://grid_movement/tilesets/grid/mona.png" type="Texture" id=11]
+[ext_resource path="res://grid_movement/tilesets/grid/stends/raid0.png" type="Texture" id=12]
+[ext_resource path="res://grid_movement/tilesets/grid/stends/raid1.png" type="Texture" id=13]
+[ext_resource path="res://grid_movement/tilesets/grid/stends/raid3.png" type="Texture" id=14]
+[ext_resource path="res://grid_movement/tilesets/grid/stends/raid2.png" type="Texture" id=15]
+[ext_resource path="res://grid_movement/tilesets/grid/stends/raid4.png" type="Texture" id=16]
+[ext_resource path="res://grid_movement/tilesets/grid/stends/raid5.png" type="Texture" id=17]
+[ext_resource path="res://grid_movement/tilesets/grid/stends/raid6.png" type="Texture" id=18]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="fllor_0" type="Sprite" parent="."]
+position = Vector2( 160, 160 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="window_0" type="Sprite" parent="."]
+position = Vector2( 96, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="wall0" type="Sprite" parent="."]
+position = Vector2( 96, 160 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 64, 64, 64 )
+
+[node name="door_0" type="Sprite" parent="."]
+position = Vector2( 32, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 64, 64 )
+
+[node name="door_1" type="Sprite" parent="."]
+position = Vector2( 32, 160 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 192, 64, 64 )
+
+[node name="grass" type="Sprite" parent="."]
+position = Vector2( 160, 96 )
+texture = ExtResource( 2 )
+
+[node name="unit" type="Sprite" parent="."]
+position = Vector2( 224, 96 )
+texture = ExtResource( 3 )
+
+[node name="pcHelper" type="Sprite" parent="."]
+position = Vector2( 224, 152 )
+texture = ExtResource( 4 )
+
+[node name="rubbish-bin" type="Sprite" parent="."]
+position = Vector2( 288, 160 )
+texture = ExtResource( 5 )
+
+[node name="bench_left" type="Sprite" parent="."]
+position = Vector2( 288, 96 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="bench_right" type="Sprite" parent="."]
+position = Vector2( 352, 96 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 64 )
+
+[node name="cooler_top" type="Sprite" parent="."]
+position = Vector2( 416, 96 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="cooler_bottom" type="Sprite" parent="."]
+position = Vector2( 416, 160 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="blackboard_topLeft" type="Sprite" parent="."]
+position = Vector2( 480, 96 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="blackboard_topRight" type="Sprite" parent="."]
+position = Vector2( 544, 96 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 64 )
+
+[node name="blackboard_bottomLeft" type="Sprite" parent="."]
+position = Vector2( 480, 160 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="blackboard_bottomRight" type="Sprite" parent="."]
+position = Vector2( 544, 160 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Actor" type="Sprite" parent="."]
+position = Vector2( -32, 160 )
+texture = ExtResource( 9 )
+
+[node name="p3" type="Sprite" parent="."]
+position = Vector2( -32, 96 )
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="mona" type="Sprite" parent="."]
+position = Vector2( -96, 96 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="mona_bottom" type="Sprite" parent="."]
+position = Vector2( -96, 160 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="raid0" type="Sprite" parent="."]
+position = Vector2( 608, 96 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="raid1" type="Sprite" parent="."]
+position = Vector2( 672, 128 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="raid2" type="Sprite" parent="."]
+position = Vector2( 736, 128 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="raid3" type="Sprite" parent="."]
+position = Vector2( 800, 128 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="raid4" type="Sprite" parent="."]
+position = Vector2( 864, 128 )
+texture = ExtResource( 16 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="raid5" type="Sprite" parent="."]
+position = Vector2( 928, 128 )
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="raid6" type="Sprite" parent="."]
+position = Vector2( 992, 128 )
+texture = ExtResource( 18 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="raid7" type="Sprite" parent="."]
+position = Vector2( 608, 128 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="raid8" type="Sprite" parent="."]
+position = Vector2( 672, 128 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="raid9" type="Sprite" parent="."]
+position = Vector2( 736, 128 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="raid10" type="Sprite" parent="."]
+position = Vector2( 800, 128 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="raid11" type="Sprite" parent="."]
+position = Vector2( 864, 128 )
+texture = ExtResource( 16 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="raid12" type="Sprite" parent="."]
+position = Vector2( 928, 128 )
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="raid13" type="Sprite" parent="."]
+position = Vector2( 992, 128 )
+texture = ExtResource( 18 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )

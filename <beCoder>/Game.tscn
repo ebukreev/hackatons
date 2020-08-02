@@ -1,0 +1,328 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://screens/combat/Raid1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/combat/Combat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://screens/exploration/scene1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://screens/combat/Raid2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://screens/combat/Raid4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://screens/combat/Raid6.tscn" type="PackedScene" id=6]
+[ext_resource path="res://screens/combat/Raid3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://screens/combat/Raid5.tscn" type="PackedScene" id=8]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+export(NodePath) var combat_screen
+export(NodePath) var raid1_screen
+export(NodePath) var raid2_screen
+export(NodePath) var raid3_screen
+export(NodePath) var raid4_screen
+export(NodePath) var raid5_screen
+export(NodePath) var raid6_screen
+export(NodePath) var exploration_screen
+
+const PLAYER_WIN = \"res://dialogue/dialogue_data/player_won.json\"
+const PLAYER_LOSE = \"res://dialogue/dialogue_data/player_lose.json\"
+
+func _ready():
+	exploration_screen = get_node(exploration_screen)
+	combat_screen = get_node(combat_screen)
+	raid1_screen = get_node(raid1_screen)
+	raid2_screen = get_node(raid2_screen)
+	raid3_screen = get_node(raid3_screen)
+	raid4_screen = get_node(raid4_screen)
+	raid5_screen = get_node(raid5_screen)
+	raid6_screen = get_node(raid6_screen)
+#	combat_screen.connect(\"combat_finished\", self, \"_on_Combat_combat_finished\")
+	for n in $Exploration/Grid.get_children():
+		if not n.type == n.CellType.RAIDARRAY:
+			continue
+		if not n.has_node(\"DialoguePlayer\"):
+			continue
+		n.get_node(\"DialoguePlayer\").connect(\"dialogue_finished\", self,
+			\"_on_opponent_dialogue_finished\", [n])
+	remove_child(combat_screen)
+	remove_child(raid1_screen)
+	remove_child(raid2_screen)
+	remove_child(raid3_screen)
+	remove_child(raid4_screen)
+	remove_child(raid5_screen)
+	remove_child(raid6_screen)
+
+
+func start_combat(combat_actors):
+	remove_child($Exploration)
+	$AnimationPlayer.play(\"fade\")
+	yield($AnimationPlayer, \"animation_finished\")
+	add_child(combat_screen)
+	combat_screen.show()
+	$AnimationPlayer.play_backwards(\"fade\")
+	$Combat/UI/Buttons/GridContainer/AddA1.grab_focus()
+	$Combat/UI.combatants_nodes = combat_actors
+
+func start_raid1(combat_actors):
+	remove_child($Exploration)
+	$AnimationPlayer.play(\"fade\")
+	yield($AnimationPlayer, \"animation_finished\")
+	add_child(raid1_screen)
+	raid1_screen.show()
+	$AnimationPlayer.play_backwards(\"fade\")
+	$Raid1/UI/Buttons/GridContainer/AddA1.grab_focus()
+	$Raid1/UI.combatants_nodes = combat_actors
+
+func start_raid2(combat_actors):
+	remove_child($Exploration)
+	$AnimationPlayer.play(\"fade\")
+	yield($AnimationPlayer, \"animation_finished\")
+	add_child(raid2_screen)
+	raid2_screen.show()
+	$AnimationPlayer.play_backwards(\"fade\")
+	$Raid2/UI/Buttons/GridContainer/AddA1.grab_focus()
+	$Raid2/UI.combatants_nodes = combat_actors
+
+func start_raid3(combat_actors):
+	remove_child($Exploration)
+	$AnimationPlayer.play(\"fade\")
+	yield($AnimationPlayer, \"animation_finished\")
+	add_child(raid3_screen)
+	raid3_screen.show()
+	$AnimationPlayer.play_backwards(\"fade\")
+	$Raid3/UI/Buttons/GridContainer/AddA1.grab_focus()
+	$Raid3/UI.combatants_nodes = combat_actors
+
+func start_raid4(combat_actors):
+	remove_child($Exploration)
+	$AnimationPlayer.play(\"fade\")
+	yield($AnimationPlayer, \"animation_finished\")
+	add_child(raid4_screen)
+	raid4_screen.show()
+	$AnimationPlayer.play_backwards(\"fade\")
+	$Raid4/UI/Buttons/GridContainer/AddA1.grab_focus()
+	$Raid4/UI.combatants_nodes = combat_actors
+
+func start_raid5(combat_actors):
+	remove_child($Exploration)
+	$AnimationPlayer.play(\"fade\")
+	yield($AnimationPlayer, \"animation_finished\")
+	add_child(raid5_screen)
+	raid5_screen.show()
+	$AnimationPlayer.play_backwards(\"fade\")
+	$Raid5/UI/Buttons/GridContainer/AddA1.grab_focus()
+	$Raid5/UI.combatants_nodes = combat_actors
+
+func start_raid6(combat_actors):
+	remove_child($Exploration)
+	$AnimationPlayer.play(\"fade\")
+	yield($AnimationPlayer, \"animation_finished\")
+	add_child(raid6_screen)
+	raid6_screen.show()
+	$AnimationPlayer.play_backwards(\"fade\")
+	$Raid6/UI/Buttons/GridContainer/AddA1.grab_focus()
+	$Raid6/UI.combatants_nodes = combat_actors
+
+func _on_opponent_dialogue_finished(opponent):
+	if opponent.lost:
+		return
+	var player = $Exploration/Grid/Player
+	var combatents = [player.combat_actor, opponent.combat_actor]
+	if opponent.name == \"RaidArr0\":
+		start_combat(combatents)
+	elif opponent.name == \"RaidArr1\":
+		start_raid1(combatents)
+	elif opponent.name == \"RaidArr2\":
+		start_raid2(combatents)
+	elif opponent.name == \"RaidArr3\":
+		start_raid3(combatents)
+	elif opponent.name == \"RaidArr4\":
+		start_raid4(combatents)
+	elif opponent.name == \"RaidArr5\":
+		start_raid5(combatents)
+	elif opponent.name == \"RaidArr6\":
+		start_raid6(combatents)
+
+func _on_Combat_combat_finished(winner, loser):
+	remove_child(combat_screen)
+	$AnimationPlayer.play_backwards(\"fade\")
+	add_child(exploration_screen)
+	var dialogue = load(\"res://dialogue/dialogue_player/DialoguePlayer.tscn\").instance()
+	if winner == \"Player\":
+		dialogue.dialogue_file = PLAYER_WIN
+	else:
+		dialogue.dialogue_file = PLAYER_LOSE
+	yield($AnimationPlayer, \"animation_finished\")
+	var player = $Exploration/Grid/Player
+	exploration_screen.get_node(\"Grid/Player/DialogueUI\").show_dialogue(player, dialogue)
+	combat_screen.clear_combat()
+	yield(dialogue, \"dialogue_finished\")
+	dialogue.queue_free()
+
+
+func _on_Raid1_combat_finished(winner, loser):
+	remove_child(raid1_screen)
+	$AnimationPlayer.play_backwards(\"fade\")
+	add_child(exploration_screen)
+	var dialogue = load(\"res://dialogue/dialogue_player/DialoguePlayer.tscn\").instance()
+	if winner == \"Player\":
+		dialogue.dialogue_file = PLAYER_WIN
+	else:
+		dialogue.dialogue_file = PLAYER_LOSE
+	yield($AnimationPlayer, \"animation_finished\")
+	var player = $Exploration/Grid/Player
+	exploration_screen.get_node(\"Grid/Player/DialogueUI\").show_dialogue(player, dialogue)
+	raid1_screen.clear_combat()
+	yield(dialogue, \"dialogue_finished\")
+	dialogue.queue_free()
+
+
+func _on_Raid2_combat_finished(winner, loser):
+	remove_child(raid2_screen)
+	$AnimationPlayer.play_backwards(\"fade\")
+	add_child(exploration_screen)
+	var dialogue = load(\"res://dialogue/dialogue_player/DialoguePlayer.tscn\").instance()
+	if winner == \"Player\":
+		dialogue.dialogue_file = PLAYER_WIN
+	else:
+		dialogue.dialogue_file = PLAYER_LOSE
+	yield($AnimationPlayer, \"animation_finished\")
+	var player = $Exploration/Grid/Player
+	exploration_screen.get_node(\"Grid/Player/DialogueUI\").show_dialogue(player, dialogue)
+	raid2_screen.clear_combat()
+	yield(dialogue, \"dialogue_finished\")
+	dialogue.queue_free()
+
+func _on_Raid3_combat_finished(winner, loser):
+	remove_child(raid3_screen)
+	$AnimationPlayer.play_backwards(\"fade\")
+	add_child(exploration_screen)
+	var dialogue = load(\"res://dialogue/dialogue_player/DialoguePlayer.tscn\").instance()
+	if winner == \"Player\":
+		dialogue.dialogue_file = PLAYER_WIN
+	else:
+		dialogue.dialogue_file = PLAYER_LOSE
+	yield($AnimationPlayer, \"animation_finished\")
+	var player = $Exploration/Grid/Player
+	exploration_screen.get_node(\"Grid/Player/DialogueUI\").show_dialogue(player, dialogue)
+	raid3_screen.clear_combat()
+	yield(dialogue, \"dialogue_finished\")
+	dialogue.queue_free()
+
+func _on_Raid5_combat_finished(winner, loser):
+	remove_child(raid5_screen)
+	$AnimationPlayer.play_backwards(\"fade\")
+	add_child(exploration_screen)
+	var dialogue = load(\"res://dialogue/dialogue_player/DialoguePlayer.tscn\").instance()
+	if winner == \"Player\":
+		dialogue.dialogue_file = PLAYER_WIN
+	else:
+		dialogue.dialogue_file = PLAYER_LOSE
+	yield($AnimationPlayer, \"animation_finished\")
+	var player = $Exploration/Grid/Player
+	exploration_screen.get_node(\"Grid/Player/DialogueUI\").show_dialogue(player, dialogue)
+	raid5_screen.clear_combat()
+	yield(dialogue, \"dialogue_finished\")
+	dialogue.queue_free()
+
+
+func _on_Raid4_combat_finished(winner, loser):
+	remove_child(raid4_screen)
+	$AnimationPlayer.play_backwards(\"fade\")
+	add_child(exploration_screen)
+	var dialogue = load(\"res://dialogue/dialogue_player/DialoguePlayer.tscn\").instance()
+	if winner == \"Player\":
+		dialogue.dialogue_file = PLAYER_WIN
+	else:
+		dialogue.dialogue_file = PLAYER_LOSE
+	yield($AnimationPlayer, \"animation_finished\")
+	var player = $Exploration/Grid/Player
+	exploration_screen.get_node(\"Grid/Player/DialogueUI\").show_dialogue(player, dialogue)
+	raid4_screen.clear_combat()
+	yield(dialogue, \"dialogue_finished\")
+	dialogue.queue_free()
+
+
+func _on_Raid6_combat_finished(winner, loser):
+	remove_child(raid6_screen)
+	$AnimationPlayer.play_backwards(\"fade\")
+	add_child(exploration_screen)
+	var dialogue = load(\"res://dialogue/dialogue_player/DialoguePlayer.tscn\").instance()
+	if winner == \"Player\":
+		dialogue.dialogue_file = PLAYER_WIN
+	else:
+		dialogue.dialogue_file = PLAYER_LOSE
+	yield($AnimationPlayer, \"animation_finished\")
+	var player = $Exploration/Grid/Player
+	exploration_screen.get_node(\"Grid/Player/DialogueUI\").show_dialogue(player, dialogue)
+	raid6_screen.clear_combat()
+	yield(dialogue, \"dialogue_finished\")
+	dialogue.queue_free()
+"
+
+[sub_resource type="Animation" id=2]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0703125, 0.0703125, 0.0703125, 0 ), Color( 0.0703125, 0.0703125, 0.0703125, 1 ) ]
+}
+
+[node name="Game" type="Node"]
+script = SubResource( 1 )
+combat_screen = NodePath("Combat")
+raid1_screen = NodePath("Raid1")
+raid2_screen = NodePath("Raid2")
+raid3_screen = NodePath("Raid3")
+raid4_screen = NodePath("Raid4")
+raid5_screen = NodePath("Raid5")
+raid6_screen = NodePath("Raid6")
+exploration_screen = NodePath("Exploration")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 2 )
+
+[node name="Transition" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0.0703125, 0.0703125, 0.0703125, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Combat" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Raid1" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Raid2" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="Raid3" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="Raid4" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Raid5" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="Raid6" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="Exploration" parent="." instance=ExtResource( 3 )]
+[connection signal="combat_finished" from="Combat" to="." method="_on_Combat_combat_finished"]
+[connection signal="combat_finished" from="Raid1" to="." method="_on_Raid1_combat_finished"]
+[connection signal="combat_finished" from="Raid2" to="." method="_on_Raid2_combat_finished"]
+[connection signal="combat_finished" from="Raid3" to="." method="_on_Raid3_combat_finished"]
+[connection signal="combat_finished" from="Raid4" to="." method="_on_Raid4_combat_finished"]
+[connection signal="combat_finished" from="Raid5" to="." method="_on_Raid5_combat_finished"]
+[connection signal="combat_finished" from="Raid6" to="." method="_on_Raid6_combat_finished"]
