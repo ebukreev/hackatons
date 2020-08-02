@@ -1,4 +1,4 @@
-# Online Hackathon </beCoder>
+# Online Hackathon /beCoder
 #### 30.07.2020 - 31.07.2020
 
 My sudo team and I have developed a game that interactively helps explain what RAID is.
