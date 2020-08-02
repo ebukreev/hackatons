@@ -1,0 +1,9 @@
+{
+  "dialog_1" : {"name": "engineer", "text": "Эта комната называется RAID 0,"},
+  "dialog_2" : {"name": "engineer", "text": "в ней ты узнаешь про преимущества"},
+  "dialog_3" : {"name": "engineer", "text": "и недостатки этого уровня."},
+  "dialog_4" : {"name": "engineer", "text": "В RAID 0 данные разделяются на блоки,"},
+  "dialog_5" : {"name": "engineer", "text": "и они поочередно записываются на разные диски."},
+  "dialog_6" : {"name": "engineer", "text": "Попробуй записать свою память"},
+  "dialog_7" : {"name": "engineer", "text": "на наш дисковый массив уровня RAID 0."}
+}

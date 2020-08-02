@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://grid_movement/tilesets/grid/pcHelper.png" type="Texture" id=1]
+[ext_resource path="res://grid_movement/pawns/pcHelper.gd" type="Script" id=2]
+
+[node name="pcHelper" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Pivot" type="Position2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Pivot"]
+texture = ExtResource( 1 )

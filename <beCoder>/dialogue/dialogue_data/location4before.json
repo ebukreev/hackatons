@@ -1,0 +1,6 @@
+{
+  "dialog_1" : {"name": "engineer", "text": "Эта комната называется RAID 1."},
+  "dialog_2" : {"name": "engineer", "text": "В RAID 1 все диски являются копиями друг друга."},
+  "dialog_3" : {"name": "engineer", "text": "Поробуй записать свою память"},
+  "dialog_4" : {"name": "engineer", "text": "на дисковый массив уровня RAID 1."}
+}

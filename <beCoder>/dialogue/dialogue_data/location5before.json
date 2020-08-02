@@ -1,0 +1,10 @@
+{
+  "dialog_1" : {"name": "engineer", "text": "Эта комната называется RAID 10."},
+  "dialog_2" : {"name": "engineer", "text": "RAID 10 объединяет в себе преимущества"},
+  "dialog_3" : {"name": "engineer", "text": "двух предыдущих уровней."},
+  "dialog_4" : {"name": "engineer", "text": "Он представляет из себя несколько массивов"},
+  "dialog_5" : {"name": "engineer", "text": "технологии RAID 1, объединённых"},
+  "dialog_6" : {"name": "engineer", "text": "по технологии RAID 0."},
+  "dialog_7" : {"name": "engineer", "text": "опробуй записать свою память"},
+  "dialog_8" : {"name": "engineer", "text": "на наш дисковый массив уровня RAID 10."}
+}

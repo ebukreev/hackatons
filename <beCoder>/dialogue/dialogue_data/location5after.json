@@ -1,0 +1,10 @@
+{
+  "dialog_1" : {"name": "engineer", "text": "Отлично! Теперь твоя память надежно защищена"},
+  "dialog_2" : {"name": "engineer", "text": "и может быть быстро считана."},
+  "dialog_3" : {"name": "Sudobot", "text": "Спасибо большое! Теперь я знаю что такое RAID."},
+  "dialog_4" : {"name": "engineer", "text": "Хотя RAID 10 и обеспечивает"},
+  "dialog_5" : {"name": "engineer", "text": "достаточную надежность и скороть,"},
+  "dialog_6" : {"name": "engineer", "text": "есть еще несколько различных уровней RAID,"},
+  "dialog_7" : {"name": "engineer", "text": "предлагаю тебе изучить их самостоятельно!"},
+  "dialog_8" : {"name": "engineer", "text": "Спасибо что обратился к нам, и удачи!"},
+}

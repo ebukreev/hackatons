@@ -1,0 +1,10 @@
+{
+  "dialog_1" : {"name": "engineer", "text": "Это RAID0 и с ним ты будешь уверен,"},
+  "dialog_2" : {"name": "engineer", "text": "что твоя память находится в надежном месте,"},
+  "dialog_3" : {"name": "engineer", "text": "потому что RAID 1 обеспечивает"},
+  "dialog_4" : {"name": "engineer", "text": "высокую отказоустойчивость!"},
+  "dialog_4" : {"name": "sudobot", "text": "Почему?"},
+  "dialog_4" : {"name": "engineer", "text": "Всё просто, он полность отзеркаливает информацию на второй диск"},
+  "dialog_4" : {"name": "engineer", "text": "Правда это работает в ущерб скорости :()"},
+  "dialog_5" : {"name": "engineer", "text": "Ладно, потренируйся!"}
+}
