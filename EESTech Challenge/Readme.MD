@@ -5,6 +5,6 @@ My "sudo" team and I have developed a machine learning model that is capable of 
 
 sudo team: [Alexey Vasiliev](https://github.com/vasilievan), [Ilya Chuprynin](https://github.com/Valaubr), and [Eugen Bukreev](https://github.com/eugenpolytechnic)
 
-![results](https://sun9-59.userapi.com/c858028/v858028552/22161a/8PQm5cpbH8M.jpg)
+![results](https://github.com/eugenpolytechnic/hackatons/blob/master/EESTech%20Challenge/certificate.png)
 
 More information at: [https://vk.com/eestechchallenge](https://vk.com/eestechchallenge)
